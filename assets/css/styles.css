@@ -788,6 +788,21 @@ img {
   margin-top: var(--spacing-xs);
 }
 
+/* Estilos para alinhamento do checkbox */
+.form-check {
+  display: flex; /* Ativa o layout flexível */
+  align-items: center; /* Alinha verticalmente o checkbox e o rótulo ao centro */
+}
+
+.form-check input[type="checkbox"] {
+  width: auto; /* Impede que o checkbox ocupe a largura total */
+  margin-right: var(--spacing-xs); /* Adiciona espaço à direita do checkbox */
+  /* Remove preenchimento e margens que podem interferir no alinhamento */
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 /* Login page */
 .login-page {
   min-height: 100vh;
@@ -846,14 +861,14 @@ img {
   margin-bottom: var(--spacing-md);
 }
 
-.login-page .form-check {
-  display: flex;
-  align-items: center;
+.login-page .form-check { /* Este .form-check é específico para a página de login */
+  display: flex;       /* Mantido para preservar a especificidade se houver alguma sutil diferença desejada, */
+  align-items: center; /* embora o estilo geral acima deva cobrir a maioria dos casos. */
 }
 
-.login-page .form-check input {
+.login-page .form-check input { /* Específico para inputs dentro de .form-check na página de login */
   margin-right: var(--spacing-xs);
-  width: auto;
+  width: auto; /* Já coberto pelo estilo geral input[type="checkbox"], mas mantido por especificidade. */
 }
 
 .login-page .form-options a {
@@ -1574,6 +1589,8 @@ img {
 .action-btn.edit {
   background-color: rgba(52, 131, 250, 0.1);
   color: var(--azul-cta);
+  margin-top: 40px;
+  
 }
 
 .action-btn.view {
@@ -1586,6 +1603,7 @@ img {
 .action-btn.more {
   background-color: rgba(0, 0, 0, 0.05);
   color: var(--text-secondary);
+  margin-top: 40px;
 }
 
 .action-btn.track {
@@ -2494,4 +2512,22 @@ img {
   .order-customer {
     justify-content: center;
   }
+}
+
+.login-page .form-icon {
+  position: absolute;
+  top: calc(
+    (1rem * 1.6)             
+    + var(--spacing-xs)     
+    + (
+        (
+          1rem                 
+          + (0.75rem * 2)      
+          + (1px * 2)          
+        ) / 2                  
+      )
+  );
+  left: 1rem;
+  transform: translateY(-50%); 
+  color: var(--text-secondary);
 }
